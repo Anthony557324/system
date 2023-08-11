@@ -3,11 +3,18 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeComp from '@/components/Home.vue'
 import LoginComp from '@/components/Login.vue'
 import MainComp from '@/components/Main.vue'
+import PersonInfoComp from '@/components/Personinfo.vue'
 
 const routes = [
-    { path: '/', component: MainComp },
-    { path: '/login', component: LoginComp },
-    { path: '/home', component: HomeComp }
+    { path: '/', name: 'main', component: MainComp },
+    { path: '/login', name: 'login', component: LoginComp },
+    { path: '/home', name: 'home', component: HomeComp },
+    // 测试如何在setup函数中获取路由参数
+    { path: '/home/:id', name:'personinfo',component: PersonInfoComp },
+    // { path: '/home/:id/test', component: HomeComp },
+    // 通配符路由，必须放在最后
+    // 路由条目可以使用重定向
+    { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 const router = createRouter({

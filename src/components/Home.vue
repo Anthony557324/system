@@ -1,9 +1,20 @@
 <template>
-    <div>Home</div>
+    <div>控制台</div>
+    <el-button @click="logout">退出</el-button>
 </template>
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
     name: 'HomeComp',
-    setup() { }
+    setup() {
+        const router = useRouter()
+        function logout(){
+            router.push('/main')
+        }
+        return {
+            logout
+        }
+     }
 }
 </script>
