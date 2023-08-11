@@ -7,7 +7,7 @@ import MainComp from '@/components/Main.vue'
 const routes = [
     { path: '/', component: MainComp },
     { path: '/login', component: LoginComp },
-    { path: '/home', components: HomeComp }
+    { path: '/home', component: HomeComp }
 ]
 
 const router = createRouter({
