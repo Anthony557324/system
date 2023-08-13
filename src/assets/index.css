@@ -1,0 +1,19 @@
+html,
+body,
+#app {
+  height: 100%;
+  font-size: 12px;
+}
+
+:root {
+  --el-color-primary: hsl(259, 100%, 68%);
+  --el-color-primary-light-3: hsl(259, 100%, 78%);
+  --el-color-primary-light-5: hsl(259, 100%, 85%);
+  --el-color-primary-light-7: hsl(259, 100%, 89%);
+  --el-color-primary-light-8: hsl(259, 100%, 93%);
+  --el-color-primary-light-9: hsl(259, 100%, 96%);
+}
+
+body {
+  margin: 0;
+}
