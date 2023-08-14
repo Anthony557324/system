@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeComp from '@/components/Home.vue'
-import LoginComp from '@/components/Login.vue'
-import MainComp from '@/components/Main.vue'
-import PersonInfoComp from '@/components/Personinfo.vue'
+import HomeComp from '@/components/layout/Home.vue'
+import LoginComp from '@/components//layoutLogin.vue'
+import MainComp from '@/components//layoutMain.vue'
+import PersonInfoComp from '@/components/layout/Personinfo.vue'
 
 const routes = [
     { path: '/', name: 'main', component: MainComp },

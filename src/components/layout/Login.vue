@@ -12,7 +12,12 @@ export default {
     setup() {
         const router = useRouter()
         function login() {
-            router.push({ name: 'home' })
+            // 跳转到首页
+            router.push({
+                name: 'home', query: {
+                    userId: userId.value
+                }
+            })
         }
         const userId = ref('')
         return {
