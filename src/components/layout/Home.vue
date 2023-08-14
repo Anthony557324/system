@@ -9,12 +9,12 @@ export default {
     name: 'HomeComp',
     setup() {
         const router = useRouter()
-        function logout(){
-            router.push('/main')
+        function logout() {
+            router.push({ name: 'main' })
         }
         return {
             logout
         }
-     }
+    }
 }
 </script>

@@ -10,9 +10,9 @@ export default {
     setup() {
         const router = useRouter()
         function login() {
-            router.push('/login')
+            router.push({ name: 'login' })
         }
-        return{
+        return {
             login
         }
     }
