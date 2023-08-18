@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img src="http://picture.itchenliang.club/static/png/banner-9e31d5ef.png">
+        <img class="pineapple" src="@/assets/pineapple.jpg">
         <div class="leftfont">图床picture</div>
         <svg t="1692347519757" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
             p-id="2520" width="24" height="24">
@@ -26,7 +26,9 @@ export default {
     justify-content: center;
     align-items: center;
 }
-
+.pineapple{
+    height: 200px;
+}
 .leftfont {
     font-size: 2rem;
     color: white;
