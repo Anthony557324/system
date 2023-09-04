@@ -3,11 +3,11 @@
         <div class="logincard">
             <div>登录页</div>
             <div class="userbox">        
-                <div>用户名</div>
+                <div class="userdiv">用户名</div>
                 <el-input v-model="userId"></el-input>
             </div>
             <div class="userbox">        
-                <div>密码</div>
+                <div class="userdiv">密码</div>
                 <el-input v-model="userMima"></el-input>
             </div>
 
@@ -66,6 +66,10 @@ export default {
 }
 .userbox{
     display: flex;
+}
+.userdiv{
+    width: 4rem;
+    height: 2.5rem;
 }
 .mima{
     display: flex;
