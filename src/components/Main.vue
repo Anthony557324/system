@@ -1,20 +1,17 @@
 <template>
-    <div>广告页</div>
-    <el-button @click="login">跳转登录</el-button>
+    <mainheader-comp></mainheader-comp>
+    <mainbody-comp></mainbody-comp>
 </template>
 <script>
-import { useRouter } from 'vue-router';
+import MainheaderComp from '@/components/layout/Mainheader.vue'
+import MainbodyComp from '@/components/layout/Mainbody.vue'
 
 export default {
     name: 'MainComp',
-    setup() {
-        const router = useRouter()
-        function login() {
-            router.push({ name: 'login' })
-        }
-        return {
-            login
-        }
-    }
+    components: {
+        MainheaderComp,
+        MainbodyComp
+    },
+    setup() { }
 }
 </script>
