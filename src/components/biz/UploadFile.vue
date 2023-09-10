@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from 'vue'
 import { selfServer } from '@/http/axios.js'
 export default {
-  name: 'MyfileComp',
+  name: 'UploadFileComp',
   setup() {
     const file = ref(null)
     const filename = ref('')
@@ -28,6 +28,13 @@ export default {
 
     }
     // 事件注册的同时，要考虑事件卸载时机
+    onMounted(() => {
+      base64Reader.addEventListener('load', getReaderResult)
+    })
+    onUnmounted(() => {
+      base64Reader.removeEventListener('load', getReaderResult)
+    })
+
 
     const formData = new FormData()
     function handleFile(e) {
@@ -47,8 +54,11 @@ export default {
 
     // base64 编码
     function uploadFileBase64() {
-
+      const fileBase64 = imgUrl.value.split(',')[1]
+      console.log(imgUrl.value.split(',')[1])
+      selfServer.post('/upload', { file: fileBase64 })
     }
+
     return { file, filename, upload, handleFile, testServer, uploadFileBase64 }
   }
 }

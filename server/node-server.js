@@ -1,15 +1,28 @@
 import http from 'node:http'
+import fs from 'node:fs'
 
-const server = http.createServer((req,res)=>{
-    res.writeHead(200,{
-        token:'12345u',
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Headers':'ljq',
-        'Access-Control-Allow-Methods':'PUT'
+const server = http.createServer((req, res) => {
+  let fileBase64 = ''
+  console.log(req.method.toLowerCase())
+  if (req.method.toLowerCase() === 'post') {
+    req.on('data', (chunk) => {
+      // stream(数据流)
+      fileBase64 += chunk.toString()
     })
-    res.end('hello')
+    req.on('end', () => {
+      const buf = Buffer.from(JSON.parse(fileBase64).file, 'base64')
+      fs.writeFileSync('test.png', buf)
+    })
+  }
+  res.writeHead(200, {
+    token: '12346u',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'ljq,content-type',
+    'Access-Control-Allow-Methods': 'PUT'
+  })
+  res.end('hello')
 })
 
-server.listen(8080,()=>{
-    console.log('server is listen on http://localhost:8080')
+server.listen(8080, () => {
+  console.log('server is listening on http://localhost:8080')
 })
